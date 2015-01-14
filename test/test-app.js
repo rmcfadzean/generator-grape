@@ -5,7 +5,7 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
 
-describe('Activerecord: False', function () {
+describe('when not using active record', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
@@ -30,7 +30,7 @@ describe('Activerecord: False', function () {
     ]);
   });
 
-  it('Gemfile doesn\'t include ActiveRecord', function () {
+  it("doesn't include ActiveRecord in the Gemfile", function () {
     assert.noFileContent('Gemfile', /gem \'activerecord\'/);
   });
 
@@ -68,13 +68,13 @@ describe('Activerecord: False', function () {
     ]);
   });
 
-  it('doesn\'t create app DB base', function () {
+  it("doesn't create app DB base", function () {
     assert.noFile([
       'db',
     ]);
   });
 
-  it('doesn\'t create database.yml', function () {
+  it("doesn't create database.yml", function () {
     assert.noFile('config/database.yml');
   });
 
