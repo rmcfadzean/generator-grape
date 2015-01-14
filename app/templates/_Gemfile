@@ -1,0 +1,23 @@
+source 'https://rubygems.org'
+
+gem 'puma'
+
+gem 'grape'
+<% if (activerecord) { %>
+gem 'grape-activerecord'
+gem 'activerecord', require: 'active_record'
+gem '<%= dbms_gem %>'
+<% } %>
+gem 'kartograph'
+
+gem 'guard', require: false
+gem 'guard-rspec', require: false
+
+group :development do
+  gem 'pry'
+end
+
+group :test do
+  gem 'airborne'
+  gem 'rack-test', require: 'rack/test'
+end

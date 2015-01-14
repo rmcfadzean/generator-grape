@@ -1,0 +1,31 @@
+default: &default
+  adapter: <%= dbms_adapter %>
+  encoding: utf8
+  pool: 5
+  timeout: 5000<% if (dbms != 'sqlite') { %>
+  username:
+  password:
+  host:
+  port:
+  <% } %>
+
+development: &development
+  <<: *default
+  databse: <%= dev_database %>
+
+test: &test
+  <<: *default
+  databse: <%= test_database %>
+
+production: &production
+  <<: *default
+  databse: <%= prod_database %>
+  <% if (!dbms == 'sqlite') { %>
+    username:
+    password:
+    host:
+    port:
+  <% } %>
+
+default_env:
+  <<: *development

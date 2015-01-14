@@ -1,0 +1,9 @@
+# A simple Grape::API
+
+## Running
+
+`rackup`
+
+## Testing
+
+`rspec`
