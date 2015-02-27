@@ -49,7 +49,7 @@ module.exports = yeoman.generators.Base.extend({
           break;
         case 'postgres':
           this.dbms_gem = 'pg'
-          this.dbms_adapter = 'postgres'
+          this.dbms_adapter = 'postgresql'
 
           this.dev_database = 'service_dev';
           this.test_database = 'service_test';
